@@ -46,7 +46,7 @@
         });
 
         $(".gallery").on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
-        $(".gallery").on("click", ".mg-prev", () => $.fn.mauGallery.methods.prevImage(options.lightboxId));
+        $(".gallery").on("click", ".mg-prev", () => $.fn.mauGallery.methods.prevImage(options.lightboxId)); // c'est la fonction qui permet la transition dune image a l'autre dans la modale #Thibaut02
         $(".gallery").on("click", ".mg-next", () => $.fn.mauGallery.methods.nextImage(options.lightboxId));
     };
     $.fn.mauGallery.methods = {
@@ -93,12 +93,15 @@
             $(`#${lightboxId}`).modal("toggle");
         },
         prevImage() {
+            // La fonction previous image #Thibaut03
             let activeImage = null;
+
             $("img.gallery-item").each(function () {
                 if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
                     activeImage = $(this);
                 }
             });
+
             let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
             let imagesCollection = [];
             if (activeTag === "all") {
@@ -122,7 +125,8 @@
                     index = i;
                 }
             });
-            next = imagesCollection[index] || imagesCollection[imagesCollection.length - 1];
+            next = imagesCollection[index - 1] || imagesCollection[imagesCollection.length - 1]; // c'était juste qu'on réaffichait la meme image (le -1) #Thibaut04
+            console.log(next);
             $(".lightboxImage").attr("src", $(next).attr("src"));
         },
         nextImage() {
@@ -155,17 +159,18 @@
                     index = i;
                 }
             });
-            next = imagesCollection[index] || imagesCollection[0];
+            next = imagesCollection[index + 1] || imagesCollection[0]; // idem que précéement #Thibaut04
             $(".lightboxImage").attr("src", $(next).attr("src"));
         },
         createLightBox(gallery, lightboxId, navigation) {
-            gallery.append(`<div class="modal fade" id="${lightboxId ? lightboxId : "galleryLightbox"}" tabindex="-1" role="dialog" aria-hidden="true">
+            gallery.append(`
+            <div class="modal fade" id="${lightboxId ? lightboxId : "galleryLightbox"}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            ${navigation ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>' : '<span style="display:none;" />'}
+                            ${navigation ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"> a </div>' : '<span style="display:none;" />'}
                             <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
-                            ${navigation ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>' : '<span style="display:none;" />'}
+                            ${navigation ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}"> b </div>' : '<span style="display:none;" />'}
                         </div>
                     </div>
                 </div>
@@ -193,6 +198,7 @@
             }
             $(".active-tag").removeClass("active active-tag");
             $(this).addClass("active-tag");
+            $(this).addClass("active"); // c'est la classe qui manquait pour mettre en surbrillance le bouton #Thibaut01
 
             var tag = $(this).data("images-toggle");
 
