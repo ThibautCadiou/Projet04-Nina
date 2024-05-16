@@ -1,23 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nina Carducci - photographe d'évènements à Bordeaux</title>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Nina Carducci - Photographe professionnelle de talent à Bordeaux pour tout type d'évènements : concert, mariage, séminaire, portraits et autres" />
+        <meta name="language" content="fr-FR" />
+
+        <!-- Balises meta Open Graph pour les réseaux sociaux -->
+        <meta property="og:title" content="Nina Carducci - photographe d'évènements à Bordeaux" />
+        <meta property="og:description" content="Nina Carducci - Photographe professionnelle de talent à Bordeaux pour tout type d'évènements : concert, mariage, séminaire, portraits et autres"" />
+        <meta property="og:image" content="images/nina_carducci.webp" />
+        <meta property="og:url" content="https://nina-carducci.github.io/" />
+        <meta property="og:type" content="website" />
+
+        <!-- Lien vers les autres fichiers/ ressources -->
         <link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css" />
         <link rel="stylesheet" href="./assets/style.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet" />
-        <meta charset="UTF-8" />
         <script src="./assets/bootstrap/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="./assets/maugallery.min.js"></script>
-        <script src="./assets/scripts.js"></script>
-        <title>Nina Carducci</title>
+        <script src="./assets/maugallery.min.js" defer></script>
+        <script src="./assets/scripts.js" defer></script>
+
+        <!-- Infos schema.org -->
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "LocalBusiness",
+                "name": "Nina Carducci",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "68 avenue Alsace-Lorraine",
+                    "addressLocality": "Bordeaux, France",
+                    "postalCode": "33200",
+                    "addressCountry": "FR"
+                },
+                "telephone": "05 56 67 78 89",
+                "openingHours": "Mo-Fr 10:00-19:00",
+                "image": ["images/nina_carducci.webp"],
+                "priceRange": "€€"
+            }
+        </script>
     </head>
+
     <body>
         <!--  Ajout balise header-->
         <header class="top-header">
-            <h1 class="name">Nina Carducci</h1>
+            <h1 class="name" itemscope itemtype="https://schema.org/Person" itemprop="name">Nina Carducci</h1>
             <!-- Ajout balise nav -->
             <nav class="nav">
                 <ul>
@@ -26,7 +58,7 @@
                     <li><a href="#services">Service</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li>
-                        <a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram.png" alt="" /></a>
+                        <a class="social-link" href="https://www.instagram.com/ninacarducci.photo/?hl=fr" target="_blank"><img src="assets/images/instagram.png" alt="logo instagram" title="Logo instagram" /></a>
                     </li>
                 </ul>
             </nav>
@@ -63,13 +95,14 @@
                 </div>
             </section>
             <section id="about">
-                <div class="picture left">
-                    <img src="./assets/images/nina_carducci.webp" alt="portait de Nina Carducci" title="portait de Nina Carducci" />
+                <div class="picture left" itemscope itemtype="https://schema.org/Person">
+                    <img src="./assets/images/nina_carducci.webp" itemprop="image" alt="portait de Nina Carducci" title="portait de Nina Carducci" />
                 </div>
                 <div id="about-me">
                     <h2 class="about-me__title">A propos de moi</h2>
-                    <h3 class="about-me__introduction">
-                        Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.
+                    <h3 class="about-me__introduction" itemscope itemtype="https://schema.org/Person">
+                        Devenir <span itemprop="jobTitle">photographe</span> était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me
+                        fait vibrer.
                     </h3>
                     <p>
                         Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au
@@ -82,15 +115,15 @@
                 <h2 class="title">Portfolio</h2>
                 <div class="container py-3">
                     <div class="gallery" style="display: none">
-                        <img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/concert_01.webp" />
-                        <img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/entreprise_01.webp" />
-                        <img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/entreprise_02.webp" />
-                        <img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/mariage_01.webp" />
-                        <img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/portrait_01.webp" />
-                        <img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/mariage_02.webp" />
-                        <img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/portrait_02.webp" />
-                        <img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/concert_02.webp" />
-                        <img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/entreprise_03.webp" />
+                        <img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/concert_01.webp" alt="photo d'un concert" title="photo de concert en intérieur" />
+                        <img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/entreprise_01.webp" alt="portrait d'un homme en costume" title="portrait professionnel" />
+                        <img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/entreprise_02.webp" alt="photo furtive d'un bon moment au travail" title="photo en milieu professionnel" />
+                        <img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/mariage_01.webp" alt="photo de deux mariés qui se prennent les mains" title="photo de mariage" />
+                        <img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/portrait_01.webp" alt="portrait d'un homme" title="portrait d'un homme" />
+                        <img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/mariage_02.webp" alt="photo de mariés heureux et souriant" title="mariés heureux" />
+                        <img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/portrait_02.webp" alt="portrait d'une femme" title="portrait d'une femme" />
+                        <img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/concert_02.webp" alt="photo d'un chanteur lors d'un concert" title="photo chanteur" />
+                        <img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/entreprise_03.webp" alt="photo furtif d'une femme en milieu professionnel" title="femme souriante au travail" />
                     </div>
                 </div>
                 <div class="quote">
@@ -156,11 +189,11 @@
                     <h2>Une question ? Une demande de devis ?</h2>
                     <p>N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
                     <form action="" method="post">
-                        <label>Nom</label>
+                        <label for="nom">Nom</label>
                         <input type="text" name="nom" id="nom" />
-                        <label>Email</label>
+                        <label for="email">Email</label>
                         <input type="email" name="email" id="email" />
-                        <label>Message</label>
+                        <label for="message">Message</label>
                         <textarea name="message" id="message" cols="30" rows="10"></textarea>
                         <input type="submit" value="Envoyer" />
                     </form>
